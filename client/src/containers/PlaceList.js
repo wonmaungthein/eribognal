@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PlaceCard from '../components/Place/PlaceCard';
+import apiClient from '../helpers/apiClient';
 
 class PlacesList extends React.Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class PlacesList extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://eribognal-server.herokuapp.com/api/questions')
+        apiClient.getPlaces()
             .then(({ data }) => {
                 this.setState({
                     places: data

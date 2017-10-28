@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from 'axios';
-import QuestionCard from '../../components/QuestionCard/QuestionCard'
+import QuestionCard from '../../components/QuestionCard/QuestionCard';
+import apiClient from '../../helpers/apiClient';
 
 class Questions extends React.Component {
     constructor(props) {
@@ -11,8 +11,8 @@ class Questions extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://eribognal-server.herokuapp.com/api/questions')
-            .then(this.updateQuestion)
+        apiClient.getQuestions()
+            .then(this.updateQuestion);
     }
 
     updateQuestion = (response) => {

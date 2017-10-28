@@ -5,7 +5,7 @@ import About from '../../components/About/About';
 import Home from '../../components/Home/Home';
 import PlacesList from '../PlaceList';
 import Questions from '../Questionnaire/Questionnaire';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 
 class App extends Component {
   render() {
