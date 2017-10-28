@@ -6,8 +6,11 @@ const Menu = () => (
         <div className="NavMenu">
             <ul>
                 <li><NavLink to="/">Home </NavLink></li>
-                <li><NavLink to="/about">about</NavLink></li>
-                <li><NavLink to="/questionnaire">question</NavLink></li>
+                <li><NavLink to="/about">About</NavLink></li>
+                <li><NavLink to="/questionnaire">Questions</NavLink></li>
+                <li><NavLink to="/places">Places</NavLink></li>
+                
+
             </ul>
         </div>
 );
