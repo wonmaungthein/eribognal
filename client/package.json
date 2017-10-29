@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.0",
+    "material-ui": "^1.0.0-beta.18",
+    "material-ui-icons": "^1.0.0-beta.17",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router": "^4.2.0",
@@ -16,7 +18,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {
-    "axios-mock-adapter": "^1.9.0"
-  }
+  "devDependencies": {}
 }
