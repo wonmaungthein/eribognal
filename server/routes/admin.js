@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const addplace = require('../dbClients/placesDB')
+const placesDB = require('../dbClients/placesDB')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -21,7 +21,7 @@ router.post('/places/add', (req, res) => {
     res.redirect('/admin/places/add')
     res.end();
   }
-  addplace(query, callBack)
+  placesDB.addNewPlace(query, callBack)
 })
 
 module.exports = router;

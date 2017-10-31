@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const Place = require('../models/Place');
+const placesDB = require('../dbClients/placesDB')
+
 
 /* GET questions list from db. */
 router.get('/questions', function (req, res, next) {
@@ -13,5 +16,12 @@ router.get('/questions', function (req, res, next) {
         }]
     );
 });
+
+router.get('/places', function (req, res, next) {
+    Place.find({}, (error, data) => {
+        res.json(data)
+    })
+})
+
 
 module.exports = router;
