@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>Places</h1>
+<p>Welcome to this Page, You are the admin </p>
+    <div class="row justify-content-md-center">
+
+        {{#each places}}
+        <div class="card" style="width: 15rem;">
+            <div class="card-block">
+                <h4 class="card-title">{{this.name}}</h4>
+                <p class="card-text">{{this.description}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <a href="places/add">
+        <button class="bg-info"> Add New places</button>
+    </a>
+</div>

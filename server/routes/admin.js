@@ -7,7 +7,14 @@ router.get('/', function (req, res, next) {
   res.render('admin', { title: 'Admin', name: 'KPC' });
 });
 
-
+router.get('/places', function (req, res, next) {
+  const callback = (error, places) => {
+    res.render('viewPlaces', {
+      places: places
+    });
+  };
+  placesDB.getPlaces(callback);
+})
 
 router.get('/places/add', function (req, res, next) {
   res.render('admin/places/placeAdd', { title: 'Admin', name: 'KPC' });
