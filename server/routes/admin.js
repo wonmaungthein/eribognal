@@ -21,7 +21,6 @@ router.get('/places/add', function (req, res, next) {
 });
 
 
-
 router.post('/places/add', (req, res) => {
   const query = req.body;
   const callBack = (data) => {

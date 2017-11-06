@@ -7,6 +7,9 @@ const apiClient = {
     },
     getPlaces: () => {
         return axios.get(`${apiUrl}/api/places`);
+    },
+    viewPlaces: (placeId) => {
+        return axios.get(`${apiUrl}/api/places/${placeId}`);
     }
 }
 

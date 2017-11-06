@@ -17,7 +17,7 @@ class PlacesList extends React.Component {
                     places: data
                 });
             })
-            .catch((err) => { })    
+            
     }
 
     render() {
@@ -26,12 +26,12 @@ class PlacesList extends React.Component {
                 {
                     this.state.places.map((place) => {
                         return (
-                            <PlaceCard place = { place } />
+                                <PlaceCard place={place} />
                         )
                     })
                 }
 
-             
+
             </div>
         )
     }
