@@ -8,4 +8,5 @@ const addNewPlace = (query, callback) => {
 const getPlaces = (query, callback) => {
     Place.find(query).exec(callback)
 }
+
 module.exports = { addNewPlace, getPlaces };
