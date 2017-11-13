@@ -18,9 +18,10 @@ router.get('/questions', function (req, res, next) {
 });
 
 router.get('/places', function (req, res, next) {
-    Place.find({}, (error, data) => {
-        res.json(data)
-    })
+    const callback = (error, places) => {
+        res.send(places);
+    };
+    placesDB.getPlaces({}, callback);
 })
 
 router.get('/places/:placeId', function(req, res, next) {

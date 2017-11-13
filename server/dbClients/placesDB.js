@@ -1,4 +1,4 @@
-const connection =require('./connection')
+const connection = require('./connection')
 const Place = require('../models/Place');
 
 const addNewPlace = (query, callback) => {
@@ -6,6 +6,6 @@ const addNewPlace = (query, callback) => {
 };
 
 const getPlaces = (query, callback) => {
-    Place.find(query).then(callback)
+    Place.find(query).exec(callback)
 }
 module.exports = { addNewPlace, getPlaces };
