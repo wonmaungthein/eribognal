@@ -19,16 +19,16 @@ class Questions extends React.Component {
         this.setState({
             questions: response.data
         })
-
+        
     }
-
+    
     render() {
         return (
             <div>
                 {this.state.questions.map(question => {
                     return (
                         <QuestionCard
-                            question={question.title} />
+                            question={question} />
                     )
                 })}
             </div>

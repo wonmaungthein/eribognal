@@ -8,11 +8,54 @@ const placesDB = require('../dbClients/placesDB')
 router.get('/questions', function (req, res, next) {
     res.send(
         [{
-            title: 'Questions1'
+            title: 'What are you food habit?',
+            questionType: 'multiple', // 'text', 'single'
+            options: [
+                {
+                    value: '1',
+                    text: 'this is a relly long text'
+                },
+                {
+                    value: '2',
+                    text: 'Choice 2'
+                },{
+                    value: '3',
+                    text: 'Choice 3'
+                }
+            ]
+
         }, {
-            title: 'Questions2'
+            title: 'How much do you spend on Food',
+            questionType: 'multiple',
+            options: [
+                {
+                    value: '1',
+                    text: 'less than 20'
+                },
+                {
+                    value: '2',
+                    text: 'less than 50'
+                },{
+                    value: '3',
+                    text: 'hundred pound'
+                }
+            ]
         }, {
-            title: 'Questions3'
+            title: 'Questions3',
+            questionType: 'multiple',
+            options: [
+                {
+                    value: '1',
+                    text: 'Option 5'
+                },
+                {
+                    value: '1',
+                    text: 'Option wqeqe 1'
+                },{
+                    value: '1',
+                    text: 'Option sad sa 1'
+                }
+            ]
         }]
     );
 });
