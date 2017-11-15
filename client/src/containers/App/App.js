@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Menu from '../../components/Menu/Menu';
 import About from '../../components/About/About';
-import Home from '../../components/Home/Home';
 import viewPlace from '../../components/Place/ViewSinglePlace'
 import PlacesList from '../PlaceList/PlaceList';
 import AddPlaceForm from '../PlaceList/AddPlaceForm';

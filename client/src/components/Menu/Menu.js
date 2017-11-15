@@ -1,15 +1,13 @@
 import React from 'react';
 import './Menu.css';
-import { NavLink } from "react-router-dom";
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
-import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 import Themes from '../../Themes';
+import SvgIcon from 'material-ui/SvgIcon';
 
 function Menu(props) {
     const { classes } = props;
@@ -17,18 +15,15 @@ function Menu(props) {
         <div className={classes.root}>
             <Grid container spacing={24}>
                 <Grid item xs={12}>
-                    <AppBar position="static">
+                    <AppBar position="static" id="unique-background">
                         <Toolbar>
-                            <IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
-                            </IconButton>
-                            <MenuIcon />
-                            <Typography type="title" color="inherit" className={classes.flex}>
-                                Food Mapping Erigbognal
+                            <MenuIcon/>
+                            <Typography type="title" color="inherit" id="title" className={classes.flex}>
+                              Food Map  
                             </Typography>
-                            <Button color="contrast"><NavLink to="/">Home </NavLink></Button>
-                            <Button color="contrast"><NavLink to="/about">About</NavLink></Button>
-                            <Button color="contrast"><NavLink to="/questionnaire">Questions</NavLink></Button>
-                            <Button color="contrast"><NavLink to="/places">Places</NavLink></Button>
+                            <SvgIcon fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
+                            </SvgIcon>
                         </Toolbar>
                     </AppBar>
                 </Grid>
@@ -38,3 +33,5 @@ function Menu(props) {
 }
 
 export default withStyles(Themes)(Menu);
+
+
