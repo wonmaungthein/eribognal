@@ -6,7 +6,8 @@ class Questions extends React.Component {
     constructor(props) {
         super();
         this.state = {
-            questions: []
+            questions: [],
+            selectedAnswer: '-1'
         };
     }
 
@@ -21,13 +22,21 @@ class Questions extends React.Component {
         })
         
     }
+    onSelect = (event) => {
+        console.log('value returned:' + event.target.value)
+        this.setState({
+            selectedAnswer: event.target.value
+        })
+    }
     
     render() {
         return (
             <div>
-                {this.state.questions.map(question => {
+                {this.state.questions.map((question, index) => {
                     return (
-                        <QuestionCard
+                        <QuestionCard key={index} questionId={index}
+                            selectedAnswer={this.state.selectedAnswer}
+                            onSelect={this.onSelect}
                             question={question} />
                     )
                 })}

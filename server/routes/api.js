@@ -29,14 +29,14 @@ router.get('/questions', function (req, res, next) {
             questionType: 'multiple',
             options: [
                 {
-                    value: '1',
+                    value: '4',
                     text: 'less than 20'
                 },
                 {
-                    value: '2',
+                    value: '5',
                     text: 'less than 50'
                 },{
-                    value: '3',
+                    value: '6',
                     text: 'hundred pound'
                 }
             ]
@@ -45,14 +45,14 @@ router.get('/questions', function (req, res, next) {
             questionType: 'multiple',
             options: [
                 {
-                    value: '1',
+                    value: '7',
                     text: 'Option 5'
                 },
                 {
-                    value: '1',
+                    value: '8',
                     text: 'Option wqeqe 1'
                 },{
-                    value: '1',
+                    value: '9',
                     text: 'Option sad sa 1'
                 }
             ]
