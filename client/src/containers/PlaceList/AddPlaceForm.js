@@ -5,18 +5,27 @@ import TextField from 'material-ui/TextField';
 import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
 import apiClient from '../../helpers/apiClient';
+import Input, { InputLabel } from 'material-ui/Input';
+import { MenuItem } from 'material-ui/Menu';
+import { FormControl, FormHelperText } from 'material-ui/Form';
+import Select from 'material-ui/Select';
+import PropTypes from 'prop-types';
 
 
 
-const styles = {
+const styles = ({
   root: {
     flexGrow: 1,
-    marginTop: 30,
+
   },
   paper: {
     textAlign: 'center',
-  },
-};
+    height: 300,
+  },formControl: {
+    minWidth: 120,
+    margin: 10
+  }
+});
 
 class AddPlaceForm extends React.Component {
   constructor(props) {
@@ -24,20 +33,31 @@ class AddPlaceForm extends React.Component {
     this.state = {
       places: [],
       name: '',
-      description: ''
+      description: '',
+      selectedCategory: "-1",
+
     }
   }
+
+  handleChange = event => {
+    this.setState({ selectedCategory: event.target.value });
+  };
+
+
 
   _handleSubmit = (event) => {
     event.preventDefault();
     apiClient.suggestPlaces({
       name: this.state.name,
-      description: this.state.description
+      description: this.state.description,
+      category: this.state.selectedCategory
+
     })
       .then(() => {
         this.setState({
           name: "",
-          description: ""
+          description: "",
+          selectedCategory:""
         })
         this.props.history.push("/")
       })
@@ -50,20 +70,22 @@ class AddPlaceForm extends React.Component {
     })
   }
   render() {
+    const { classes } = this.props;
     return (
       <Grid container spacing={24}>
         <Grid item xs={12}>
           <div style={{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center'
+            alignItems: 'center',
           }}>
-            <Paper style={styles} zDepth={3} >
+            <Paper style={styles} zDepth={8} >
               <h2 className="card-heading">Suggest a New Place</h2>
-              <form style={{
+              <form className={classes.container} autoComplete="off" style={{
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center'
+                alignItems: 'center',
+                height: 250,
               }}>
                 <TextField
                   value={this.state.name}
@@ -82,9 +104,28 @@ class AddPlaceForm extends React.Component {
                   multiLine={true}
                   placeholder="Description"
                   floatingLabelText="Description" />
+
+
+
+                <FormControl className={classes.formControl}>
+                  <Select style={styles}
+                    value={this.state.selectedCategory}
+                    onChange={(event) => this._handleChange(event, "selectedCategory")}
+                  >
+                    <MenuItem value="-1">Select Category</MenuItem>
+            
+                    <MenuItem value="Growing Project">Growing Project</MenuItem>
+                    <MenuItem value="Night Out">Night Out</MenuItem>
+                    <MenuItem value="Shopping">Shopping</MenuItem>
+                    <MenuItem value="Eating Out">Eating Out</MenuItem>
+
+                  </Select>
+                </FormControl>
                 <RaisedButton type="submit" value="Submit" onClick={this._handleSubmit}>
                   Save
         </RaisedButton>
+
+
               </form>
             </Paper>
           </div>
@@ -93,6 +134,8 @@ class AddPlaceForm extends React.Component {
     )
   }
 }
-
+AddPlaceForm.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(AddPlaceForm);

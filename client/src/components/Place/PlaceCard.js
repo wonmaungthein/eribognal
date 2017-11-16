@@ -5,7 +5,7 @@ const PlaceCard = props => {
     return (
         <div>
             <ul>
-                <li> Title: {place.title} </li>
+                <li> Name: {place.name} </li>
                 <li> Description: {place.description} </li>
                 <li> Category:   {place.category} </li>
             </ul>
