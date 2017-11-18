@@ -53,7 +53,4 @@ const PlaceCard = props => {
     )
 };
 
-
-
 export default withStyles(styles)(PlaceCard);
-

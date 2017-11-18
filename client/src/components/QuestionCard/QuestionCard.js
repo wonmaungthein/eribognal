@@ -13,13 +13,15 @@ const Question = props => {
         aria-label="options"
         name={componentName}
         value={props.selectedAnswer}
-        
       >
-      {question.options.map((option) => (
-          <FormControl component={componentName}>
-            <FormControlLabel control={<Radio name={componentName} checked={option.value === props.selectedAnswer} onChange={props.onSelect} />} label={option.text} value={option.value} />
-          </FormControl>
-      ))}
+        {question.options.map((option) => (
+            <FormControl component={componentName}>
+              <FormControlLabel control={<Radio name={componentName} checked={option.value === props.selectedAnswer}
+                onChange={props.onSelect} />}
+                label={option.text} value={option.value} />
+
+            </FormControl>
+        ))}
       </RadioGroup>
     </FormControl>
   )

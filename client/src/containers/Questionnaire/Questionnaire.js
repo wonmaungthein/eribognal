@@ -7,37 +7,40 @@ class Questions extends React.Component {
         super();
         this.state = {
             questions: [],
-            selectedAnswer: '-1'
+            selectedAnswers: {}
+
         };
     }
 
     componentDidMount() {
         apiClient.getQuestions()
-            .then(this.updateQuestion);
+            .then(this.showQuestions);
     }
 
-    updateQuestion = (response) => {
+    showQuestions = (response) => {
         this.setState({
             questions: response.data
         })
-        
+
     }
-    onSelect = (event) => {
-        console.log('value returned:' + event.target.value)
+    onSelect = (questionId, event) => {
+        const selectedAnswers = this.state.selectedAnswers;
+        selectedAnswers[questionId] = event.target.value;
+
         this.setState({
-            selectedAnswer: event.target.value
+            selectedAnswers
         })
     }
-    
+
     render() {
         return (
             <div>
                 {this.state.questions.map((question, index) => {
                     return (
                         <QuestionCard key={index} questionId={index}
-                            selectedAnswer={this.state.selectedAnswer}
-                            onSelect={this.onSelect}
-                            question={question} />
+                            question={question}
+                            selectedAnswer={this.state.selectedAnswers[question._id]}
+                            onSelect={(event) => this.onSelect(question._id, event)} />
                     )
                 })}
             </div>
