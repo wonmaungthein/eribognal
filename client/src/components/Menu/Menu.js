@@ -1,5 +1,4 @@
 import React from 'react';
-import './Menu.css';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import AppBar from 'material-ui/AppBar';
@@ -10,16 +9,17 @@ import Themes from '../../Themes';
 import SvgIcon from 'material-ui/SvgIcon';
 import {Link} from 'react-router-dom';
 
+
 function Menu(props) {
     const { classes } = props;
     return (
         <div className={classes.root}>
             <Grid container spacing={24}>
                 <Grid item xs={12}>
-                    <AppBar position="static" id="unique-background">
+                    <AppBar className={classes.appBar} position="static" >
                         <Toolbar>
                             <Link to="/"><MenuIcon /></Link>
-                            <Typography type="title" color="inherit" id="title" className={classes.flex}>
+                            <Typography type="title" className={classes.appBarTitle}>
                               Food Map  
                             </Typography>
                             <SvgIcon fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">

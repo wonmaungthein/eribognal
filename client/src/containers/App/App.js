@@ -18,9 +18,9 @@ class App extends Component {
     return (
       <Router>
         <div className={classes.root}>
+          <Menu />
           <Grid container spacing={24}>
             <Grid item xs={12}>
-              <Menu />
               <Route exact path="/" component={HomeScreen} />
               <Route path="/about" component={About} />
               <Route path="/questionnaire" component={Questions} />
