@@ -8,6 +8,7 @@ import Typography from 'material-ui/Typography';
 import MenuIcon from 'material-ui-icons/Menu';
 import Themes from '../../Themes';
 import SvgIcon from 'material-ui/SvgIcon';
+import {Link} from 'react-router-dom';
 
 function Menu(props) {
     const { classes } = props;
@@ -17,7 +18,7 @@ function Menu(props) {
                 <Grid item xs={12}>
                     <AppBar position="static" id="unique-background">
                         <Toolbar>
-                            <MenuIcon/>
+                            <Link to="/"><MenuIcon /></Link>
                             <Typography type="title" color="inherit" id="title" className={classes.flex}>
                               Food Map  
                             </Typography>
