@@ -1,5 +1,6 @@
 import React from 'react';
 import './homeScreen.css';
+import {Link} from 'react-router-dom';
 
 const HomeScreen = () => {
     return <div>
@@ -7,7 +8,7 @@ const HomeScreen = () => {
             <div className="overlay"></div>
             <div className="first-content">
                 <div className="question-header">
-                    <h1><a href="/questionnaire">Questionnaire</a></h1>
+                    <Link to="/questionnaire">Questionnaire</Link> 
                 </div>
                 <div className="question-footer">
                     <h5>10 out of 20 questions answered</h5>
@@ -16,7 +17,7 @@ const HomeScreen = () => {
             </div>
             <div className="second-content">
                 <div className="food-map-header">
-                    <h1><a href="places">Food map</a></h1>
+                    <Link to="/questionnaire">Food map</Link> 
                 </div>
                 <div className="food-map-footer">
                     <h5>Find sustainable in Glasgow</h5>

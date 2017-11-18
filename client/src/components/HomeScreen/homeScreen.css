@@ -1,4 +1,4 @@
-.main{
+.main {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -12,7 +12,7 @@
 }
 
 .main .first-content,
-.main .second-content{
+.main .second-content {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -20,57 +20,69 @@
   align-content: center;
 }
 
-.main .first-content{
+.main .first-content {
   background: #cc0000;
 }
 
-.main .second-content{
+.main .second-content {
   background: #ccc;
 }
 
 .main .question-header,
-.main .food-map-header{
+.main .food-map-header {
   align-self: center;
   position: relative;
   z-index: 5;
   overflow: hidden;
 }
 
-.main .question-header h1 a,
-.main .food-map-header h1 a{
+.main .question-header a,
+.main .food-map-header a {
   text-decoration: none;
   color: #fff;
 }
 
+.question-header,
+.food-map-header {
+  font-family: Roboto-Bold;
+  font-size: 36px;
+  color: #FFFFFF;
+  line-height: 42px;
+}
+
 .main .question-footer,
-.main .food-map-footer{
+.main .food-map-footer {
   align-self: center;
   position: relative;
   z-index: 5;
   color: #fff;
+  line-height: 22px;
+  font-family: Roboto-Regular;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .main .first-content .img-control,
-.main .second-content .img-control{
+.main .second-content .img-control {
   width: 100%;
   height: 50%;
   position: absolute;
   z-index: 2;
 }
 
-.main .first-content .img-control{
+.main .first-content .img-control {
   top: 0;
   left: 0;
   right: 0;
 }
 
-.main .second-content .img-control{
+.main .second-content .img-control {
   bottom: 0;
   left: 0;
   right: 0;
 }
 
-.overlay{
+.overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -78,5 +90,6 @@
   height: 100%;
   background: rgba(0, 0, 0, .5);
   z-index: 3;
+  background: #000000;
+  opacity: 0.54;
 }
-
