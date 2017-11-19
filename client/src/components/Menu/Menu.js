@@ -18,7 +18,7 @@ function Menu(props) {
                 <Grid item xs={12}>
                     <AppBar className={classes.appBar} position="static" >
                         <Toolbar>
-                            <Link to="/"><MenuIcon /></Link>
+                            <Link style={{color: 'white', marginRight : 15, marginTop: 4}} to="/"><MenuIcon /></Link>
                             <Typography type="title" className={classes.appBarTitle}>
                               Food Map  
                             </Typography>
