@@ -17,7 +17,7 @@ const HomeScreen = () => {
             </div>
             <div className="second-content">
                 <div className="food-map-header">
-                    <Link to="/questionnaire">Food map</Link> 
+                    <Link to="/places">Food map</Link> 
                 </div>
                 <div className="food-map-footer">
                     <h5>Find sustainable in Glasgow</h5>
