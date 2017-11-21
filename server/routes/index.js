@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
+const ensureAuthenticated = require('./ensureAuthenticated')
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Eribognal' });
+// Get Homepage
+router.get('/', ensureAuthenticated.AuthenticatedTest, function (req, res) {
+  res.render('index', {
+    title: "Admin Penal"
+  });
 });
 
 module.exports = router;
