@@ -75,6 +75,12 @@ router.post('/places', function (req, res, next) {
     placesDB.addNewPlace(req.body, callback)
 });
 
+router.post('/answers', function (req, res, next){
+    const callback = () => { res.send(200) }
+    answerDB.addNewAnswer(req.body, callback)
+    
+})
+
 router.get('/places/:placeId', function (req, res, next) {
     const body = req.body;
     const placeId = req.params.placeId;

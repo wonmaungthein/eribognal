@@ -5,9 +5,8 @@ import TextField from 'material-ui/TextField';
 import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
 import apiClient from '../../helpers/apiClient';
-import Input, { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
-import { FormControl, FormHelperText } from 'material-ui/Form';
+import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import PropTypes from 'prop-types';
 

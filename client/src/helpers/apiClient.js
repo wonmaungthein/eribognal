@@ -5,6 +5,9 @@ const apiClient = {
     getQuestions: () => {
         return axios.get(`${apiUrl}/api/questions`);
     },
+    saveAnswer: (answer) => {
+        return axios.post(`${apiUrl}/api/answers`);
+    },
     getPlaces: () => {
         return axios.get(`${apiUrl}/api/places`);
     },
