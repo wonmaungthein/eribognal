@@ -9,6 +9,7 @@ import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import PropTypes from 'prop-types';
+import Spinner from '../../components/Spinner/Spinner';
 
 
 
@@ -34,7 +35,7 @@ class AddPlaceForm extends React.Component {
       name: '',
       description: '',
       selectedCategory: "-1",
-
+      isLoading: false
     }
   }
 
@@ -46,14 +47,18 @@ class AddPlaceForm extends React.Component {
 
   _handleSubmit = (event) => {
     event.preventDefault();
-    apiClient.suggestPlaces({
+    this.setState({
+      isLoading:true
+    })
+     apiClient.suggestPlaces({
       name: this.state.name,
       description: this.state.description,
-      category: this.state.selectedCategory
+      category: this.state.selectedCategory,
 
     })
       .then(() => {
         this.setState({
+          isLoading:false,          
           name: "",
           description: "",
           selectedCategory:""
@@ -70,6 +75,9 @@ class AddPlaceForm extends React.Component {
   }
   render() {
     const { classes } = this.props;
+    if (this.state.isLoading) {
+      return <Spinner />
+  } else{
     return (
       <Grid container spacing={24}>
         <Grid item xs={12}>
@@ -131,7 +139,7 @@ class AddPlaceForm extends React.Component {
         </Grid>
       </Grid>
     )
-  }
+  }}
 }
 AddPlaceForm.propTypes = {
   classes: PropTypes.object.isRequired,

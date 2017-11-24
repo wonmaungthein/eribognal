@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Place = require('../models/Place');
 const placesDB = require('../dbClients/placesDB')
+const answerDB = require('../dbClients/answerDB');
 
 
 /* GET questions list from db. */
@@ -77,7 +78,7 @@ router.post('/places', function (req, res, next) {
 
 router.post('/answers', function (req, res, next){
     const callback = () => { res.send(200) }
-    answerDB.addNewAnswer(req.body, callback)
+    answerDB.addAnswer(req.body, callback)
     
 })
 
