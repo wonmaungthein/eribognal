@@ -10,22 +10,53 @@ import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import PropTypes from 'prop-types';
 import Spinner from '../../components/Spinner/Spinner';
-
-
+import { InputLabel } from 'material-ui/Input';
 
 const styles = ({
   root: {
     flexGrow: 1,
-
+  },
+  layoutStyle: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   paper: {
     textAlign: 'center',
     height: 300,
-  },formControl: {
-    minWidth: 120,
+    width: 300,
+    border: '2px solid gray',
+  },
+  paperX: {
+    textAlign: 'center',
+    width: 300,
+    border: '2px solid #c12020',
+    backgroundColor: '#ffeaea'
+  },
+  error: {
+    color: 'red',
+    textAlign: 'center',
+    marginTop: 5,
+    width: 300,
+  },
+  formControl: {
+    minWidth: 180,
     margin: 10
-  }
+  },
+  formStyle: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    height: 250,
+    width: 300,
+  },
+  titleStyle: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
 });
+
 
 class AddPlaceForm extends React.Component {
   constructor(props) {
@@ -34,112 +65,100 @@ class AddPlaceForm extends React.Component {
       places: [],
       name: '',
       description: '',
-      selectedCategory: "-1",
+      error: undefined,
+      selectedCategory: "",
       isLoading: false
     }
   }
 
-  handleChange = event => {
-    this.setState({ selectedCategory: event.target.value });
-  };
-
-
-
   _handleSubmit = (event) => {
     event.preventDefault();
-    this.setState({
-      isLoading:true
-    })
-     apiClient.suggestPlaces({
+    apiClient.suggestPlaces({
       name: this.state.name,
       description: this.state.description,
-      category: this.state.selectedCategory,
-
+      category: this.state.selectedCategory
     })
-      .then(() => {
+      .then((response) => {
         this.setState({
-          isLoading:false,          
           name: "",
           description: "",
-          selectedCategory:""
+          selectedCategory: "",
+          isLoading: true,
+          error: undefined
         })
-        this.props.history.push("/")
+        alert('You Have Successfully Submited the form, Thank You')
+        this.props.history.push("/new-place")
+      }
+      )
+      .catch((error) => {
+        this.setState({
+          error
+        })
       })
   }
-
   _handleChange = (event, field) => {
     const value = event.target.value;
     this.setState({
       [field]: value
     })
   }
+  showError = () =>{
+    if (this.state.error !== undefined) {
+      return (<div style={styles.error}>An Error Has Happened</div>)
+    }   
+  }
   render() {
     const { classes } = this.props;
     if (this.state.isLoading) {
       return <Spinner />
-  } else{
-    return (
-      <Grid container spacing={24}>
-        <Grid item xs={12}>
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}>
-            <Paper style={styles} zDepth={8} >
-              <h2 className="card-heading">Suggest a New Place</h2>
-              <form className={classes.container} autoComplete="off" style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                height: 250,
-              }}>
-                <TextField
-                  value={this.state.name}
-                  onChange={(event) => this._handleChange(event, "name")}
-                  type="text"
-                  name="name"
-                  hintText='Name of the Place'
-                  placeholder="Name of the Place"
-                  floatingLabelText='Name of the Place' />
-                <TextField
-                  value={this.state.description}
-                  onChange={(event) => this._handleChange(event, "description")}
-                  type="text"
-                  name="description"
-                  hintText="Description"
-                  multiLine={true}
-                  placeholder="Description"
-                  floatingLabelText="Description" />
-
-
-
-                <FormControl className={classes.formControl}>
-                  <Select style={styles}
-                    value={this.state.selectedCategory}
-                    onChange={(event) => this._handleChange(event, "selectedCategory")}
-                  >
-                    <MenuItem value="-1">Select Category</MenuItem>
-            
-                    <MenuItem value="Growing Project">Growing Project</MenuItem>
-                    <MenuItem value="Night Out">Night Out</MenuItem>
-                    <MenuItem value="Shopping">Shopping</MenuItem>
-                    <MenuItem value="Eating Out">Eating Out</MenuItem>
-
-                  </Select>
-                </FormControl>
-                <RaisedButton type="submit" value="Submit" onClick={this._handleSubmit}>
-                  Save
-        </RaisedButton>
-
-
-              </form>
-            </Paper>
-          </div>
+    } else {
+      return (
+        <Grid container spacing={24}>
+          <Grid item xs={12}>
+            <div style={styles.layoutStyle}>
+              <Paper style={!this.state.error ? styles.paper : styles.paperX} >
+                <h2 style={styles.titleStyle}>Suggest A New Place</h2>
+                <form autoComplete="off" style={styles.formStyle}>
+                  <TextField
+                    required
+                    id="required"
+                    label="Required"
+                    value={this.state.name}
+                    onChange={(event) => this._handleChange(event, "name")}
+                    type="text"
+                    name="name"
+                    placeholder="Name of the Place" />
+                  <TextField
+                    required
+                    id="required"
+                    label="Required"
+                    value={this.state.description}
+                    onChange={(event) => this._handleChange(event, "description")}
+                    type="text"
+                    name="description"
+                    placeholder="Description" />
+                  <FormControl required className={classes.formControl}>
+                    <InputLabel htmlFor="Select Category">Select Category</InputLabel>
+                    <Select style={styles}
+                      value={this.state.selectedCategory}
+                      onChange={(event) => this._handleChange(event, "selectedCategory")}>
+                      <MenuItem value="Growing Project">Growing Project</MenuItem>
+                      <MenuItem value="Night Out">Night Out</MenuItem>
+                      <MenuItem value="Shopping">Shopping</MenuItem>
+                      <MenuItem value="Eating Out">Eating Out</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <RaisedButton type="submit" value="Submit" onClick={this._handleSubmit}>
+                    Save </RaisedButton>
+                  {this.showError()}
+                </form>
+              </Paper>
+            </div>
+          </Grid>
         </Grid>
-      </Grid>
-    )
-  }}
+      )
+    }
+  }
 }
 AddPlaceForm.propTypes = {
   classes: PropTypes.object.isRequired,

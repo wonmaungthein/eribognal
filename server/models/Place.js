@@ -14,11 +14,11 @@ const categories = {
 const schema = new Schema({
     name: {
         type: String,
-        required: [true, 'Name field is required']
+        required: true
     },
     description: {
         type: String,
-        required: [true, 'Description field is required']
+        required: true
     },
     category: {
         type: String,
@@ -29,6 +29,7 @@ const schema = new Schema({
         enum: statuses
     }
 });
+
 
 const Place = mongoose.model('Place', schema);
 

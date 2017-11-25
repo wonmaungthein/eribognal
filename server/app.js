@@ -33,10 +33,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(ensureAuthenticated.router);
 
+
+
 app.use('/', index);
 app.use('/admin', ensureAuthenticated.AuthenticatedTest, admin);
 app.use('/users', users);
 app.use('/api', api);
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

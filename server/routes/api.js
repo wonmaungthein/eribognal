@@ -2,9 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Place = require('../models/Place');
 const placesDB = require('../dbClients/placesDB')
+
 const answerDB = require('../dbClients/answerDB');
-
-
 /* GET questions list from db. */
 router.get('/questions', function (req, res, next) {
     res.send(
@@ -20,7 +19,7 @@ router.get('/questions', function (req, res, next) {
                 {
                     value: '2',
                     text: 'Choice 2'
-                },{
+                }, {
                     value: '3',
                     text: 'Choice 3'
                 }
@@ -38,7 +37,7 @@ router.get('/questions', function (req, res, next) {
                 {
                     value: '5',
                     text: 'less than 50'
-                },{
+                }, {
                     value: '6',
                     text: 'hundred pound'
                 }
@@ -55,7 +54,7 @@ router.get('/questions', function (req, res, next) {
                 {
                     value: '8',
                     text: 'Option wqeqe 1'
-                },{
+                }, {
                     value: '9',
                     text: 'Option sad sa 1'
                 }
@@ -72,14 +71,19 @@ router.get('/places', function (req, res, next) {
 })
 
 router.post('/places', function (req, res, next) {
-    const callback = () => { res.send(200) }
-    placesDB.addNewPlace(req.body, callback)
+    const callback = () => res.send(200)
+    const onError = (e) => {
+        console.log(e)
+        res.status(500)
+        res.json({ error: "An error has happened" })
+    }
+    placesDB.addNewPlace(req.body).then(callback).catch(onError)
 });
 
-router.post('/answers', function (req, res, next){
+router.post('/answers', function (req, res, next) {
     const callback = () => { res.send(200) }
     answerDB.addAnswer(req.body, callback)
-    
+
 })
 
 router.get('/places/:placeId', function (req, res, next) {

@@ -1,7 +1,4 @@
 import React from 'react';
-import Grid from 'material-ui/Grid';
-import { withStyles } from 'material-ui/styles';
-import List, { ListItem } from 'material-ui/List';
 
 const styles = ({
    listIcon: {
@@ -19,7 +16,7 @@ const Icon = props => {
     const category = props.category 
     const fileName = iconsMap[category]
     return (
-        <img src={`../../icons/categories/icon-${fileName}.png`}  style={styles.listIcon}  />
+        <img alt={""} src={`../../icons/categories/icon-${fileName}.png`}  style={styles.listIcon}  />
     )
 };
 
