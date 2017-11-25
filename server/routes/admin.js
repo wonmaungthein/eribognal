@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const placesDB = require('../dbClients/placesDB');
+const placesDB = require('../dbClients/placesDB')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -12,8 +12,8 @@ router.get('/', function (req, res, next) {
 
 router.get('/places', function (req, res, next) {
   const callback = (error, places) => {
-    if(error){
-      res.render('error',{
+    if (error) {
+      res.render('error', {
         error: error,
         message: 'This is an error'
       })
@@ -42,6 +42,14 @@ router.post('/places/add', (req, res) => {
   placesDB.addNewPlace(query, callBack)
 })
 
+router.post('/places/:placeId/approve', (req, res) => {
+  const query = { _id: req.params.placeId };
+  const callBack = (data) => {
+    res.redirect('/admin/places')
+    res.end();
+  }
+  placesDB.approvePlace(query, callBack)
+})
 
 router.get('/users', function (req, res, next) {
   res.send('This is users page in Admin');

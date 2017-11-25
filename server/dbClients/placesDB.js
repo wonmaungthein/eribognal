@@ -9,4 +9,8 @@ const getPlaces = (query, callback) => {
   Place.find(query).exec(callback)
 }
 
-module.exports = { addNewPlace, getPlaces };
+const approvePlace = (query, callback) => {
+  Place.findOneAndUpdate(query, { $set: { status: 'Approved' } }, callback)
+
+}
+module.exports = { addNewPlace, getPlaces, approvePlace };

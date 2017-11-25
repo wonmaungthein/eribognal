@@ -39,8 +39,8 @@ const styles = ({
   paperX: {
     textAlign: 'center',
     width: 300,
-    border: '2px solid #c12020',
-    backgroundColor: '#ffeaea'
+    border: '2px solid #c12020 ',
+    backgroundColor: '#ffeaea '
   },
   error: {
     color: 'red',
@@ -65,7 +65,6 @@ const styles = ({
     alignItems: 'center',
   },
 });
-
 
 class AddPlaceForm extends React.Component {
 
@@ -126,6 +125,7 @@ class AddPlaceForm extends React.Component {
         })
       })
   }
+
   _handleChange = (event, field) => {
     const value = event.target.value;
     this.setState({
@@ -197,7 +197,7 @@ class AddPlaceForm extends React.Component {
                 </FormControl>
                 <RaisedButton type="submit" value="Submit" onClick={this._handleSubmit}>
                   Save
-        </RaisedButton>
+          </RaisedButton>
               </form>
             </Paper>
           </div>
@@ -213,4 +213,3 @@ AddPlaceForm.propTypes = {
 };
 
 export default withStyles(styles)(AddPlaceForm);
-

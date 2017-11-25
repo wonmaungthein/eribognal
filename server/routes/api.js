@@ -67,7 +67,7 @@ router.get('/places', function (req, res, next) {
     const callback = (error, places) => {
         res.send(places);
     };
-    placesDB.getPlaces({}, callback);
+    placesDB.getPlaces({status: 'Approved'}, callback);
 })
 
 router.post('/places', function (req, res, next) {
