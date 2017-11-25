@@ -16,6 +16,12 @@ const schema = new Schema({
         type: String,
         required: true
     },
+    address: {
+        line1: { type: String },
+        line2: { type: String },
+        postcode: { type: String },
+        city: { type: String },
+    },
     description: {
         type: String,
         required: true
@@ -34,3 +40,4 @@ const schema = new Schema({
 const Place = mongoose.model('Place', schema);
 
 module.exports = Place;
+
