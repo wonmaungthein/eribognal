@@ -126,18 +126,21 @@ class AddPlaceForm extends React.Component {
         })
       })
   }
+
   handleRequestClosex = () => {
     this.setState({
       open: false,
       isLoading: false,
     });
-  };
+  }
+  
   handleRequestClose = () => {
     this.setState({
       open: false,
       isLoading: true,
     });
-  };
+  }
+  
   _handleChange = (event, field) => {
     const value = event.target.value;
     this.setState({
