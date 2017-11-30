@@ -15,6 +15,7 @@
     "cors": "^2.8.4",
     "debug": "~2.6.9",
     "express": "^4.16.2",
+    "express-fileupload": "^0.3.0",
     "express-handlebars": "^3.0.0",
     "express-messages": "^1.0.1",
     "express-session": "^1.10.1",

@@ -69,6 +69,7 @@ const styles = ({
 
 
 class AddPlaceForm extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -81,8 +82,9 @@ class AddPlaceForm extends React.Component {
         city: ''
       },
       description: '',
+      selectedCategory: "-1",
+      file: null,
       error: undefined,
-      selectedCategory: "",
       isLoading: false,
       open: false,
     }
@@ -92,8 +94,6 @@ class AddPlaceForm extends React.Component {
     event.preventDefault();
     apiClient.suggestPlaces({
       name: this.state.name,
-      description: this.state.description,
-      category: this.state.selectedCategory,
       address:
         {
           line1: this.state.address.line1,
@@ -101,22 +101,24 @@ class AddPlaceForm extends React.Component {
           postcode: this.state.address.postcode,
           city: this.state.address.city
         },
-    })
+      description: this.state.description,
+      category: this.state.selectedCategory,
+    }, this.state.file)
       .then((response) => {
         this.setState({
           name: "",
-          description: "",
-          selectedCategory: "",
-          open: true,
-          error: undefined,
           address: {
             line1: "",
             line2: "",
             postcode: "",
             city: "",
           },
+          description: "",
+          selectedCategory: "",
+          open: true,
+          error: undefined,
         })
-        this.props.history.push("/new-place")
+        this.props.history.push("/places")
       }
       )
       .catch((error) => {
@@ -133,14 +135,14 @@ class AddPlaceForm extends React.Component {
       isLoading: false,
     });
   }
-  
+
   handleRequestClose = () => {
     this.setState({
       open: false,
       isLoading: true,
     });
   }
-  
+
   _handleChange = (event, field) => {
     const value = event.target.value;
     this.setState({
@@ -155,6 +157,9 @@ class AddPlaceForm extends React.Component {
         [field]: value
       }
     })
+  }
+  onFileChange = (e) => {
+    this.setState({ file: e.target.files[0] })
   }
   showError = () => {
     if (this.state.error !== undefined) {
@@ -178,13 +183,14 @@ class AddPlaceForm extends React.Component {
       )
     }
   }
+
   render() {
     const { classes } = this.props;
     const { fullScreen } = this.props;
     if (this.state.isLoading) {
-      
+
       return <Spinner />
-      
+
     } else {
       return (
         <Grid container spacing={24}>
@@ -243,6 +249,7 @@ class AddPlaceForm extends React.Component {
                       <MenuItem value="Eating Out">Eating Out</MenuItem>
                     </Select>
                   </FormControl>
+                  <input type="file" accept=".png,.jpg,.jpeg,.gif" onChange={this.onFileChange} />
                   <RaisedButton type="submit" value="Submit" onClick={this._handleSubmit}>
                     Save </RaisedButton>
                   {this.showError()}
@@ -255,8 +262,11 @@ class AddPlaceForm extends React.Component {
     }
   }
 }
+
+
 AddPlaceForm.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(AddPlaceForm);
+

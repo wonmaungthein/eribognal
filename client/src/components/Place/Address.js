@@ -5,15 +5,12 @@ import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import { InputLabel } from 'material-ui/Input';
 
-
-
 const styles = ({
     addressContainer: {
         display: 'flex',
         flexDirection: "column",
     }
 });
-
 
 class Address extends React.Component {
 

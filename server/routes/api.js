@@ -4,6 +4,9 @@ const Place = require('../models/Place');
 const placesDB = require('../dbClients/placesDB')
 
 const answerDB = require('../dbClients/answerDB');
+const path = require('path');
+const imagesDir = path.dirname(require.main.filename) + '/../public/images/places/';
+
 /* GET questions list from db. */
 router.get('/questions', function (req, res, next) {
     res.send(
@@ -67,17 +70,33 @@ router.get('/places', function (req, res, next) {
     const callback = (error, places) => {
         res.send(places);
     };
-    placesDB.getPlaces({status: 'Approved'}, callback);
+    placesDB.getPlaces({ status: 'Approved' }, callback);
 })
 
 router.post('/places', function (req, res, next) {
-    const callback = () => res.send(200)
+    console.log(req.files)
+    console.log(req.body)
+
+    const place = JSON.parse(req.body.place);
+
+    const callback = (place) => {
+        if (req.files) {
+            const image = req.files.image;
+
+            image.mv(`${imagesDir}${place._id}.png`, (err) => {
+                if (err) {
+                    console.error(err);
+                } else console.log('image saved')
+            })
+        }
+        return res.send(200);
+    }
     const onError = (e) => {
         console.log(e)
         res.status(500)
         res.json({ error: "An error has happened" })
     }
-    placesDB.addNewPlace(req.body).then(callback).catch(onError)
+    placesDB.addNewPlace(place).then(callback).catch(onError)
 });
 
 router.post('/answers', function (req, res, next) {
