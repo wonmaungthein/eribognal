@@ -24,34 +24,10 @@ import Dialog, {
 const styles = ({
   root: {
     flexGrow: 1,
-  },
-  layoutStyle: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  paper: {
-    textAlign: 'center',
-    height: 500,
-    width: 300,
-    border: '2px solid gray',
+    padding: 10
   },
   paperX: {
-    textAlign: 'center',
-    width: 300,
-    border: '2px solid #c12020',
-    height: 500,
     backgroundColor: '#ffeaea'
-  },
-  error: {
-    color: 'red',
-    textAlign: 'center',
-    marginTop: 5,
-    width: 300,
-  },
-  formControl: {
-    minWidth: 180,
-    margin: 10
   },
   formStyle: {
     display: 'flex',
@@ -59,11 +35,6 @@ const styles = ({
     alignItems: 'center',
     height: 350,
     width: 300,
-  },
-  titleStyle: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
   },
 });
 
@@ -193,71 +164,79 @@ class AddPlaceForm extends React.Component {
 
     } else {
       return (
-        <Grid container spacing={24}>
-          <Grid item xs={12}>
-            <div style={styles.layoutStyle}>
-              <Paper style={!this.state.error ? styles.paper : styles.paperX} >
-                <h2 style={styles.titleStyle}>Suggest A New Place</h2>
-                <form autoComplete="off" style={styles.formStyle}>
-                  <Dialog
-                    fullScreen={fullScreen}
-                    open={this.state.open}
-                    onRequestClose={this.handleRequestClose}
-                  >
+        <div style={styles.root}>
+          <Grid container spacing={24} style={!this.state.error ? styles.paper : styles.paperX} >
+            <Grid item xs={12}>
+              <h2>Suggest a New Place</h2>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                required
+                id="required"
+                label="Name of the Place"
+                value={this.state.name}
+                onChange={(event) => this._handleChange(event, "name")}
+                type="text"
+                name="name"
+                placeholder="Name of the Place" />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                required
+                id="required"
+                label="Description"
+                value={this.state.description}
+                onChange={(event) => this._handleChange(event, "description")}
+                type="text"
+                name="description"
+                placeholder="Description" />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Address
+                onChange={(event, field) => this._handleAddress(event, field)}
+                city={this.state.address.city} />
+            </Grid>
 
-                    <DialogTitle>{"Thank You"}</DialogTitle>
-                    <DialogContent>
-                      <DialogContentText>
-                        You have Successfully submitted the form
-                     </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                      <Button onClick={this.handleRequestClose} color="primary">
-                        OK
-                      </Button>
-                    </DialogActions>
-                  </Dialog>
-                  <TextField
-                    required
-                    id="required"
-                    label="Name of the Place"
-                    value={this.state.name}
-                    onChange={(event) => this._handleChange(event, "name")}
-                    type="text"
-                    name="name"
-                    placeholder="Name of the Place" />
-                  <TextField
-                    required
-                    id="required"
-                    label="Description"
-                    value={this.state.description}
-                    onChange={(event) => this._handleChange(event, "description")}
-                    type="text"
-                    name="description"
-                    placeholder="Description" />
-                  <Address
-                    onChange={(event, field) => this._handleAddress(event, field)}
-                    city={this.state.address.city} />
-                  <FormControl required className={classes.formControl}>
-                    <InputLabel htmlFor="Select Category">Select Category</InputLabel>
-                    <Select style={styles}
-                      value={this.state.selectedCategory}
-                      onChange={(event) => this._handleChange(event, "selectedCategory")}>
-                      <MenuItem value="Growing Project">Growing Project</MenuItem>
-                      <MenuItem value="Night Out">Night Out</MenuItem>
-                      <MenuItem value="Shopping">Shopping</MenuItem>
-                      <MenuItem value="Eating Out">Eating Out</MenuItem>
-                    </Select>
-                  </FormControl>
-                  <input type="file" accept=".png,.jpg,.jpeg,.gif" onChange={this.onFileChange} />
-                  <RaisedButton type="submit" value="Submit" onClick={this._handleSubmit}>
-                    Save </RaisedButton>
-                  {this.showError()}
-                </form>
-              </Paper>
-            </div>
+            <Grid item xs={12} md={6}>
+              <FormControl required className={classes.formControl}>
+                <InputLabel htmlFor="Select Category">Select Category</InputLabel>
+                <Select style={styles}
+                  value={this.state.selectedCategory}
+                  onChange={(event) => this._handleChange(event, "selectedCategory")}>
+                  <MenuItem value="Growing Project">Growing Project</MenuItem>
+                  <MenuItem value="Night Out">Night Out</MenuItem>
+                  <MenuItem value="Shopping">Shopping</MenuItem>
+                  <MenuItem value="Eating Out">Eating Out</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <input type="file" accept=".png,.jpg,.jpeg,.gif" onChange={this.onFileChange} />
+              <RaisedButton type="submit" value="Submit" onClick={this._handleSubmit}>
+                Save </RaisedButton>
+              {this.showError()}
+            </Grid>
           </Grid>
-        </Grid>
+          <Dialog
+            fullScreen={fullScreen}
+            open={this.state.open}
+            onRequestClose={this.handleRequestClose}
+          >
+
+            <DialogTitle>{"Thank You"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                You have Successfully submitted the form
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.handleRequestClose} color="primary">
+                OK
+                </Button>
+            </DialogActions>
+          </Dialog>
+        </div>
       )
     }
   }
