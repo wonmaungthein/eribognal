@@ -50,7 +50,6 @@ router.post('/places/:placeId/approve', (req, res) => {
   }
   placesDB.approvePlace(query, callBack)
 })
-
 router.get('/users', function (req, res, next) {
   res.send('This is users page in Admin');
 });

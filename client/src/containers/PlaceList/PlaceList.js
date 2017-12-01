@@ -26,7 +26,7 @@ class PlacesList extends React.Component {
         super(props);
         this.state = {
             places: [],
-            selectedCatagory: []
+            selectedCatagory: "-1"
         };
     }
     componentDidMount() {
@@ -45,7 +45,12 @@ class PlacesList extends React.Component {
         })
     };
     render() {
-        const filtered = this.state.places.filter(place => place.category === this.state.selectedCatagory);
+        let filtered = ""
+        if (this.state.selectedCatagory === "-1") {
+            filtered = this.state.places
+        } else {
+            filtered = this.state.places.filter(place => place.category === this.state.selectedCatagory);
+        }
         return (
             <Grid container spacing={24} className="listPlaces" style={styles.gridStyle}>
                 <FilterCatagory selectedCatagory={this.state.selectedCatagory}

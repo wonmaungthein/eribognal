@@ -19,6 +19,7 @@ const FilterCatagory = props => {
                     checked={Option.value === props.selectedCatagory}
                     onChange={props.onSelect}
                     name="selectedCatagory">
+                    <MenuItem value="-1">Show All</MenuItem>                    
                     <MenuItem value="Growing Project">Growing Project</MenuItem>
                     <MenuItem value="Night Out">Night Out</MenuItem>
                     <MenuItem value="Shopping">Shopping</MenuItem>
