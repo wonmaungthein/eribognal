@@ -24,9 +24,10 @@ class Questions extends React.Component {
         super();
         this.state = {
             questions: [],
+            answers: [],
             isLoading: false,
             selectedAnswers: {}
-
+            
         };
     }
 
@@ -41,9 +42,18 @@ class Questions extends React.Component {
         })
 
     }
-    onSelect = (questionId, event) => {
+    onSelect = (question, event) => {
+        const value = event.target.value;
+        const selectedOption = question.options.find(option => {
+            return option.value === value;
+        });
+
+        question.options.map(option => option.selected = false)
+        selectedOption.selected = true;
+
+
         const selectedAnswers = this.state.selectedAnswers;
-        selectedAnswers[questionId] = event.target.value;
+        selectedAnswers[question.questionId] = event.target.value;
 
         this.setState({
             selectedAnswers
@@ -55,16 +65,10 @@ class Questions extends React.Component {
             isLoading: true
         })
         apiClient.saveAnswer({
-            questions: this.state.question,
-            selectedAnswers: this.state.selectedAnswers
-
+            answers: this.state.questions
         })
             .then(() => {
-                this.setState({
-                    questions: "",
-                    selectedAnswers: "",
-                    isLoading: false
-                })
+
                 this.props.history.push("/")
             })
     }
@@ -73,15 +77,15 @@ class Questions extends React.Component {
         const { classes } = this.props;
         if (this.state.isLoading) {
             return <Spinner />
-        } else{
+        } else {
             return (
                 <div className="questionnaires">
                     {this.state.questions.map((question, index) => {
                         return (
                             <QuestionCard key={index} questionId={index}
                                 question={question}
-                                selectedAnswer={this.state.selectedAnswers[question._id]}
-                                onSelect={(event) => this.onSelect(question._id, event)} />
+                                selectedAnswer={this.state.selectedAnswers[question.questionId]}
+                                onSelect={(event) => this.onSelect(question, event)} />
                         )
                     })}
                     <Button className={classes.button} raised color="primary" type="submit" value="Submit" onClick={this.handleSubmit}>

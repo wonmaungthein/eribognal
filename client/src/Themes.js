@@ -4,7 +4,7 @@ import pink from 'material-ui/colors/pink';
 const Themes = theme => ({
   root: {
     flexGrow: 1,
-    'font': 'Roboto-Bold'
+    'font': 'Roboto'
   },
   appBar: {
     background: pink[700]
@@ -14,13 +14,13 @@ const Themes = theme => ({
     'padding-top': 5,
     'padding-left': 5,
     color: 'black',
-    'font': 'Roboto-Bold'
+    'font': 'Roboto'
   },
   appBarTitle: {
     'font-size': 20,
     flex: 1,
     color: 'white',
-    'font': 'Roboto-Bold'
+    'font': 'Roboto'
   },
   flex: {
     flex: 1,

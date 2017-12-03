@@ -6,64 +6,11 @@ const placesDB = require('../dbClients/placesDB')
 const answerDB = require('../dbClients/answerDB');
 const path = require('path');
 const imagesDir = path.dirname(require.main.filename) + '/../public/images/places/';
+const questionsData = require('./data/questions');
 
 /* GET questions list from db. */
 router.get('/questions', function (req, res, next) {
-    res.send(
-        [{
-            _id: 1,
-            title: 'What are you food habit?',
-            questionType: 'multiple', // 'text', 'single'
-            options: [
-                {
-                    value: '1',
-                    text: 'this is a relly long text'
-                },
-                {
-                    value: '2',
-                    text: 'Choice 2'
-                }, {
-                    value: '3',
-                    text: 'Choice 3'
-                }
-            ]
-
-        }, {
-            _id: 2,
-            title: 'How much do you spend on Food',
-            questionType: 'multiple',
-            options: [
-                {
-                    value: '4',
-                    text: 'less than 20'
-                },
-                {
-                    value: '5',
-                    text: 'less than 50'
-                }, {
-                    value: '6',
-                    text: 'hundred pound'
-                }
-            ]
-        }, {
-            _id: 3,
-            title: 'Questions3',
-            questionType: 'multiple',
-            options: [
-                {
-                    value: '7',
-                    text: 'Option 5'
-                },
-                {
-                    value: '8',
-                    text: 'Option wqeqe 1'
-                }, {
-                    value: '9',
-                    text: 'Option sad sa 1'
-                }
-            ]
-        }]
-    );
+    res.send(questionsData);
 });
 
 router.get('/places', function (req, res, next) {
@@ -100,8 +47,14 @@ router.post('/places', function (req, res, next) {
 });
 
 router.post('/answers', function (req, res, next) {
-    const callback = () => { res.send(200) }
-    answerDB.addAnswer(req.body, callback)
+    const callback = (answers) => {
+        res.send(answers)
+    }
+    const errorCallback = (error) => {
+        console.error(error);
+        res.send(500);
+    }
+    answerDB.addAnswer(req.body).then(callback).catch(errorCallback)
 
 })
 

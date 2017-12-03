@@ -1,8 +1,8 @@
 const connection = require('./connection')
 const Answer = require('../models/Answer');
 
-const addAnswer = (query, callback) => {
-    Answer.create(query).then(callback)
+const addAnswer = (query) => {
+    return Answer.create(query);
 };
 
 module.exports = { addAnswer };

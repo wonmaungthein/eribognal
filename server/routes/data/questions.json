@@ -1,0 +1,59 @@
+[
+	{
+		"questionId": 1,
+		"title": "What are you food habit?",
+		"questionType": "multiple",
+		"options": [
+			{
+				"value": "1",
+				"text": "this is a relly long text"
+			},
+			{
+				"value": "2",
+				"text": "Choice 2"
+			},
+			{
+				"value": "3",
+				"text": "Choice 3"
+			}
+		]
+	},
+	{
+		"questionId": 2,
+		"title": "How much do you spend on Food",
+		"questionType": "multiple",
+		"options": [
+			{
+				"value": "4",
+				"text": "less than 20"
+			},
+			{
+				"value": "5",
+				"text": "less than 50"
+			},
+			{
+				"value": "6",
+				"text": "hundred pound"
+			}
+		]
+	},
+	{
+		"questionId": 3,
+		"title": "Questions3",
+		"questionType": "multiple",
+		"options": [
+			{
+				"value": "7",
+				"text": "Option 5"
+			},
+			{
+				"value": "8",
+				"text": "Option wqeqe 1"
+			},
+			{
+				"value": "9",
+				"text": "Option sad sa 1"
+			}
+		]
+	}
+]
