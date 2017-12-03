@@ -20,21 +20,21 @@ class Address extends React.Component {
             <div style={styles.addressContainer}>
                 <TextField
                     label="Address line 1"
-                    value={this.props.line1}
+                    value={this.props.address.line1}
                     onChange={(event) => this.props.onChange(event, "line1")}
                     type="text"
                     name="line1"
                     placeholder="Address line 1" />
                 <TextField
                     label="Address line 2"
-                    value={this.props.line2}
+                    value={this.props.address.line2}
                     onChange={(event) => this.props.onChange(event, "line2")}
                     type="text"
                     name="line2"
                     placeholder="Address line 2" />
                 <TextField
                     label="postcode"
-                    value={this.props.postcode}
+                    value={this.props.address.postcode}
                     type="text"
                     name="postcode"
                     placeholder="Postcode"
@@ -44,7 +44,7 @@ class Address extends React.Component {
                 <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="City">Select City</InputLabel>
                     <Select style={styles}
-                        value={this.props.city}
+                        value={this.props.address.city}
                         onChange={(event) => this.props.onChange(event, "city")}
                         name="city">
                         <MenuItem value="Glasgow">Glasgow</MenuItem>

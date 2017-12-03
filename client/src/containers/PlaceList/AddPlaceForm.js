@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
@@ -13,6 +14,11 @@ import Spinner from '../../components/Spinner/Spinner';
 import { InputLabel } from 'material-ui/Input';
 import { Address } from "../../components/Place/Address";
 import Button from 'material-ui/Button';
+import Geosuggest from 'react-geosuggest';
+import './map.css';
+
+
+
 import Dialog, {
   DialogActions,
   DialogContent,
@@ -155,13 +161,30 @@ class AddPlaceForm extends React.Component {
     }
   }
 
+
+  onSuggestSelect = (suggest) => {
+    console.log(suggest)
+    const { gmaps = {} } = suggest;
+    const { address_components = [] } = gmaps;
+    const postCodeData = address_components[5] || {};
+    const cityData = address_components[1] || {};
+
+    this.setState({
+      address: {
+        line1: suggest.description || '',
+        line2: gmaps.formatted_address || '',
+        postcode: postCodeData.long_name || '',
+        city: cityData.long_name || '',
+      }
+    })
+  }
+
+
   render() {
     const { classes } = this.props;
     const { fullScreen } = this.props;
     if (this.state.isLoading) {
-
       return <Spinner />
-
     } else {
       return (
         <div style={styles.root}>
@@ -192,11 +215,15 @@ class AddPlaceForm extends React.Component {
                 placeholder="Description" />
             </Grid>
             <Grid item xs={12} md={6}>
+              <Geosuggest
+                onSuggestSelect={this.onSuggestSelect} />
+            </Grid>
+            <Grid item xs={12} md={6}>
               <Address
                 onChange={(event, field) => this._handleAddress(event, field)}
-                city={this.state.address.city} />
+                address={this.state.address}
+              />
             </Grid>
-
             <Grid item xs={12} md={6}>
               <FormControl required className={classes.formControl}>
                 <InputLabel htmlFor="Select Category">Select Category</InputLabel>
