@@ -55,6 +55,7 @@ class PlacesList extends React.Component {
             <Grid container spacing={24} className="listPlaces" style={styles.gridStyle}>
                 <FilterCatagory selectedCatagory={this.state.selectedCatagory}
                     onSelect={(event) => this.onSelect(event)} />
+                <AddPlaceButton />
                 {filtered.map((place) => {
                     return (
                         <div>
@@ -65,7 +66,6 @@ class PlacesList extends React.Component {
                     )
                 })
                 }
-                <AddPlaceButton />
             </Grid>
         )
     }

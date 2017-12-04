@@ -5,7 +5,8 @@ import { NavLink } from "react-router-dom";
 import  Add  from 'material-ui-icons/Add';
 
 const iconStyles = {
-    marginLeft: 50,
+    width: 450,
+    marginLeft: 100,
     fontSize: 12,
 };
 

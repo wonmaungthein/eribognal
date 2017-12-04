@@ -5,7 +5,7 @@ import Select from 'material-ui/Select';
 
 const styles = {
     customWidth: {
-        width: 200,
+        width: 150,
         paddingLeft: 35,
     },
 };
