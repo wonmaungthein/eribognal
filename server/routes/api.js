@@ -21,9 +21,6 @@ router.get('/places', function (req, res, next) {
 })
 
 router.post('/places', function (req, res, next) {
-    console.log(req.files)
-    console.log(req.body)
-
     const place = JSON.parse(req.body.place);
 
     const callback = (place) => {
@@ -39,7 +36,6 @@ router.post('/places', function (req, res, next) {
         return res.send(200);
     }
     const onError = (e) => {
-        console.log(e)
         res.status(500)
         res.json({ error: "An error has happened" })
     }

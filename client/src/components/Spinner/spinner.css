@@ -1,12 +1,29 @@
-.rotate{
-    -webkit-animation: rotate 1.5s linear infinite; 
-            animation: rotate 1.5s linear infinite; 
-  }
-  @-webkit-keyframes rotate{ to{-webkit-transform: rotate(360deg); } }
-  @keyframes         rotate{ to{        transform: rotate(360deg); } }
-  
-  .spinner{
-    display:inline-block; width: 50px; height: 50px;
+.rotate {
+    -webkit-animation: rotate 1.5s linear infinite;
+    animation: rotate 1.5s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    display: center;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     box-shadow: inset -2px 0 0 2px #0bf;
-  }
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}

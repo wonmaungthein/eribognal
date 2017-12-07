@@ -1,8 +1,6 @@
 import React from 'react';
 import { withStyles } from 'material-ui/styles';
-import CategoryIcon from '../CategoryIcon/CategoryIcon'
-import Avatar from 'material-ui/Avatar';
-import Card, { CardContent } from 'material-ui/Card'
+import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import Grid from 'material-ui/Grid';
 
 

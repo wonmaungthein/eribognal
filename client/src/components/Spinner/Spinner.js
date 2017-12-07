@@ -3,9 +3,7 @@ import './spinner.css';
 
 function Spinner () {
     return (
-        <div>
-            <span className="spinner rotate"></span>
-        </div>
+        <div className="spinner rotate"></div>
     )
 }
 
