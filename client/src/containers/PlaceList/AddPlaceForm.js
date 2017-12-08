@@ -32,6 +32,10 @@ const styles = ({
 	paperX: {
 		backgroundColor: '#ffeaea'
 	},
+	categoryList: {
+		width: '100%',
+        paddingLeft: 100,
+    },
 	formStyle: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -194,6 +198,19 @@ class AddPlaceForm extends React.Component {
 							<h2>Suggest a New Place</h2>
 						</Grid>
 						<Grid item xs={12} md={6}>
+							<FormControl required className={classes.formControl}>
+								<InputLabel htmlFor="Select Category">Select Category</InputLabel>
+								<Select style={styles.categoryList}
+									value={this.state.selectedCategory} 
+									onChange={(event) => this._handleChange(event, "selectedCategory")}>
+									<MenuItem value="Growing Project">Growing Project</MenuItem>
+									<MenuItem value="Night Out">Night Out</MenuItem>
+									<MenuItem value="Shopping">Shopping</MenuItem>
+									<MenuItem value="Eating Out">Eating Out</MenuItem>
+								</Select>
+							</FormControl>
+						</Grid>
+						<Grid item xs={12} md={6}>
 							<TextField
 								required
 								id="required"
@@ -226,20 +243,7 @@ class AddPlaceForm extends React.Component {
 								address={this.state.address}
 							/>
 						</Grid>
-						<Grid item xs={12} md={6}>
-							<FormControl required className={classes.formControl}>
-								<InputLabel htmlFor="Select Category">Select Category</InputLabel>
-								<Select style={styles}
-									value={this.state.selectedCategory}
-									onChange={(event) => this._handleChange(event, "selectedCategory")}>
-									<MenuItem value="Growing Project">Growing Project</MenuItem>
-									<MenuItem value="Night Out">Night Out</MenuItem>
-									<MenuItem value="Shopping">Shopping</MenuItem>
-									<MenuItem value="Eating Out">Eating Out</MenuItem>
-								</Select>
-							</FormControl>
-						</Grid>
-
+						
 						<Grid item xs={12} md={6}>
 							<input type="file" accept=".png,.jpg,.jpeg,.gif" onChange={this.onFileChange} />
 							<RaisedButton type="submit" value="Submit" onClick={this._handleSubmit}>
