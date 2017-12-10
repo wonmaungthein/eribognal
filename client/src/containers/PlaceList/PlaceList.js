@@ -1,7 +1,6 @@
 import React from 'react';
 import PlaceCard from '../../components/Place/PlaceCard';
 import apiClient from '../../helpers/apiClient';
-import AddPlaceButton from '../../components/Place/AddPlaceButton'
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import FilterCatagory from '../../components/Place/FilterCatagory';
@@ -64,7 +63,6 @@ class PlacesList extends React.Component {
                 <Grid container spacing={24} className="listPlaces" style={styles.gridStyle}>
                     <FilterCatagory selectedCatagory={this.state.selectedCatagory}
                         onSelect={(event) => this.onSelect(event)} />
-                    <AddPlaceButton />
                     {filtered.map((place) => {
                         return (
                             <div>
