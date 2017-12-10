@@ -19,16 +19,14 @@ class App extends Component {
       <Router>
         <div className={classes.root}>
           <Menu />
-          <Grid container spacing={24}>
-            <Grid item xs={12}>
-              <Route exact path="/" component={HomeScreen} />
-              <Route path="/about" component={About} />
-              <Route path="/questionnaire" component={Questions} />
-              <Route exact path="/places/:placeId" component={viewPlace} />
-              <Route exact path="/places" component={PlacesList} />
-              <Route path="/new-place" component={AddPlaceForm} />            
-              </Grid>
-          </Grid>
+
+          <Route exact path="/" component={HomeScreen} />
+          <Route path="/about" component={About} />
+          <Route path="/questionnaire" component={Questions} />
+          <Route exact path="/places/:placeId" component={viewPlace} />
+          <Route exact path="/places" component={PlacesList} />
+          <Route path="/new-place" component={AddPlaceForm} />
+
         </div>
       </Router>
     );

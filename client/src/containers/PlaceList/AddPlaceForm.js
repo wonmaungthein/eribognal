@@ -1,5 +1,5 @@
 import React from 'react';
-import RaisedButton from 'material-ui/Button';
+import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
@@ -11,8 +11,8 @@ import PropTypes from 'prop-types';
 import Spinner from '../../components/Spinner/Spinner';
 import { InputLabel } from 'material-ui/Input';
 import { Address } from "../../components/Place/Address";
-import Button from 'material-ui/Button';
 import Geosuggest from 'react-geosuggest';
+import Send from 'material-ui-icons/Send';
 import './map.css';
 import Dialog, {
 	DialogActions,
@@ -189,15 +189,15 @@ class AddPlaceForm extends React.Component {
 			return <Spinner />
 		} else {
 			return (
-				<div style={styles.root}>
+				<div style={styles.root} className="add-place-form">
 					<Grid container spacing={24} style={!this.state.error ? styles.paper : styles.paperX} >
 						<Grid item xs={12}>
 							<h2>Suggest a New Place</h2>
 						</Grid>
 						<Grid item xs={12} md={6}>
-							<FormControl required className={classes.formControl}>
+							<FormControl fullWidth required>
 								<InputLabel htmlFor="Select Category">Select Category</InputLabel>
-								<Select style={styles.categoryList}
+								<Select
 									value={this.state.selectedCategory}
 									onChange={(event) => this._handleChange(event, "selectedCategory")}>
 									<MenuItem value="Growing Project">Growing Project</MenuItem>
@@ -209,6 +209,7 @@ class AddPlaceForm extends React.Component {
 						</Grid>
 						<Grid item xs={12} md={6}>
 							<TextField
+								fullWidth
 								required
 								id="required"
 								label="Name of the Place"
@@ -220,7 +221,9 @@ class AddPlaceForm extends React.Component {
 						</Grid>
 						<Grid item xs={12} md={6}>
 							<TextField
+								fullWidth
 								required
+								multiline
 								id="required"
 								label="Description"
 								value={this.state.description}
@@ -231,6 +234,7 @@ class AddPlaceForm extends React.Component {
 						</Grid>
 						<Grid item xs={12} md={6}>
 							<Geosuggest
+								placeholder="Start typing to search for a Place"
 								country="gb"
 								onSuggestSelect={this.onSuggestSelect} />
 						</Grid>
@@ -243,8 +247,12 @@ class AddPlaceForm extends React.Component {
 
 						<Grid item xs={12} md={6}>
 							<input type="file" accept=".png,.jpg,.jpeg,.gif" onChange={this.onFileChange} />
-							<RaisedButton type="submit" value="Submit" onClick={this._handleSubmit}>
-								Save </RaisedButton>
+						</Grid>
+						<Grid item xs={12} md={6}>
+							<Button className={classes.button} onClick={this._handleSubmit} raised color="accent">
+								Save
+								<Send style={{ marginLeft: 10 }} />
+							</Button>
 							{this.showError()}
 						</Grid>
 					</Grid>
