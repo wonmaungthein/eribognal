@@ -1,0 +1,496 @@
+[
+    {
+        "questionId": 1,
+        "title": "Are you the main person who buys groceries for your household?",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Yes"
+            },
+            {
+                "value": "2",
+                "text": "No"
+            }
+        ]
+    },
+    {
+        "questionId": 2,
+        "title": "Where do you normally buy groceries?",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Large Supermarkets"
+            },
+            {
+                "value": "2",
+                "text": "Independent shops"
+            },
+            {
+                "value": "3",
+                "text": "Local Food/Farmers Markets"
+            },
+            {
+                "value": "4",
+                "text": "Delivery Box Schemes"
+            },
+            {
+                "value": "5",
+                "text": "Online/delivery from supermarket"
+            },
+            {
+                "value": "6",
+                "text": "other"
+            }
+        ]
+    },
+    {
+        "questionId": 3,
+        "title": "How do you decide where to buy groceries?",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Price"
+            },
+            {
+                "value": "2",
+                "text": "Distance from home/work"
+            },
+            {
+                "value": "3",
+                "text": "Quality"
+            },
+            {
+                "value": "4",
+                "text": "Organic"
+            },
+            {
+                "value": "5",
+                "text": "Where the food comes from"
+            },
+            {
+                "value": "6",
+                "text": "Miles the food has travelled"
+            },
+            {
+                "value": "7",
+                "text": "Supporting local business"
+            },
+            {
+                "value": "8",
+                "text": "Animal Welfare"
+            },
+            {
+                "value": "9",
+                "text": "Other"
+            }
+        ]
+    },
+    {
+        "questionId": 4,
+        "title": "Roughly how much money do you spend weekly on groceries?",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "£0- £20"
+            },
+            {
+                "value": "2",
+                "text": "£20- £40"
+            },
+            {
+                "value": "3",
+                "text": "£40- £60"
+            },
+            {
+                "value": "4",
+                "text": "£60- £100"
+            },
+            {
+                "value": "5",
+                "text": "£100 +"
+            }
+        ]
+    },
+    {
+        "questionId": 5,
+        "title": "How often do you eat out?",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Once a week"
+            },
+            {
+                "value": "2",
+                "text": "2 – 3 times a week"
+            },
+            {
+                "value": "3",
+                "text": "Most Days"
+            },
+            {
+                "value": "4",
+                "text": "Once a month"
+            },
+            {
+                "value": "5",
+                "text": "Every 2 – 3 months"
+            },
+            {
+                "value": "6",
+                "text": "Never"
+            }
+        ]
+    },
+    {
+        "questionId": 6,
+        "title": "Where are you most likely to go when eating out?",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Restaurants"
+            },
+            {
+                "value": "2",
+                "text": "Fast Food"
+            },
+            {
+                "value": "3",
+                "text": "Take Away"
+            },
+            {
+                "value": "4",
+                "text": "Community Meals"
+            },
+            {
+                "value": "5",
+                "text": "Friends/Family Home"
+            },
+            {
+                "value": "6",
+                "text": "Other"
+            }
+        ]
+    },
+    {
+        "questionId": 7,
+        "title": "How do you decide where to eat out?",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Price"
+            },
+            {
+                "value": "2",
+                "text": "Location"
+            },
+            {
+                "value": "3",
+                "text": "Quality"
+            },
+            {
+                "value": "4",
+                "text": "Where the food comes from"
+            },
+            {
+                "value": "5",
+                "text": "Vegetarian/Vegan options"
+            },
+            {
+                "value": "6",
+                "text": "Animal Welfare"
+            },
+            {
+                "value": "7",
+                "text": "Other"
+            }
+        ]
+    },
+    {
+        "questionId": 8,
+        "title": "Are you interested in growing your own food?",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Yes"
+            },
+            {
+                "value": "2",
+                "text": "No"
+            }
+        ]
+    },
+    {
+        "questionId": 9,
+        "title": "Are you involved any community growing projects",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Yes"
+            },
+            {
+                "value": "2",
+                "text": "No"
+            }
+        ]
+    },
+    {
+        "questionId": 10,
+        "title": "What stops you from sourcing food that is more sustainable?",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Too expensive"
+            },
+            {
+                "value": "2",
+                "text": "Too far away"
+            },
+            {
+                "value": "3",
+                "text": "I don’t know of any"
+            },
+            {
+                "value": "4",
+                "text": "Not enough variety "
+            },
+            {
+                "value": "5",
+                "text": "I’ve never thought about it"
+            },
+            {
+                "value": "6",
+                "text": "Other"
+            }
+        ]
+    },
+    {
+        "questionId": 11,
+        "title": "Are you interested in finding out where to buy healthier, local and sustainable groceries?",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Yes"
+            },
+            {
+                "value": "2",
+                "text": "No"
+            }
+        ]
+    },
+    {
+        "questionId": 12,
+        "title": "Where would you normally go on a night out?",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Local Pub"
+            },
+            {
+                "value": "2",
+                "text": "Bars"
+            },
+            {
+                "value": "3",
+                "text": "Clubs"
+            },
+            {
+                "value": "4",
+                "text": "Friends/Family"
+            },
+            {
+                "value": "5",
+                "text": "Other"
+            }
+        ]
+    },
+    {
+        "questionId": 13,
+        "title": "How do you decide where to go?",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Price"
+            },
+            {
+                "value": "2",
+                "text": "Reputation"
+            },
+            {
+                "value": "3",
+                "text": "Quality"
+            },
+            {
+                "value": "4",
+                "text": "Local products"
+            },
+            {
+                "value": "5",
+                "text": "Other"
+            }
+        ]
+    },
+    {
+        "questionId": 14,
+        "title": "How many people does your household normally buy food for?",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "1- 2"
+            },
+            {
+                "value": "2",
+                "text": "3-4"
+            },
+            {
+                "value": "3",
+                "text": "5+"
+            }
+        ]
+    },
+    {
+        "questionId": 15,
+        "title": "Where do you live? ",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Near Kinning Park Complex"
+            },
+            {
+                "value": "2",
+                "text": "Glasgow South"
+            },
+            {
+                "value": "3",
+                "text": "Glasgow North"
+            },
+            {
+                "value": "4",
+                "text": "Glasgow West"
+            },
+            {
+                "value": "5",
+                "text": "Out with Glasgow"
+            },
+            {
+                "value": "6",
+                "text": "Post Code (first 3 letters/numbers"
+            }
+        ]
+    },
+    {
+        "questionId": 16,
+        "title": "Age",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Under 18"
+            },
+            {
+                "value": "2",
+                "text": "18-24"
+            },
+            {
+                "value": "3",
+                "text": "25-30"
+            },
+            {
+                "value": "4",
+                "text": "31-40"
+            },
+            {
+                "value": "5",
+                "text": "41-50"
+            },
+            {
+                "value": "6",
+                "text": "50+"
+            },
+            {
+                "value": "7",
+                "text": "Prefer not to say"
+            }
+        ]
+    },
+    {
+        "questionId": 17,
+        "title": "Employment?",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Full Time employment"
+            },
+            {
+                "value": "2",
+                "text": "Part Time employment"
+            },
+            {
+                "value": "3",
+                "text": "Unemployment"
+            },
+            {
+                "value": "4",
+                "text": "Student"
+            },
+            {
+                "value": "5",
+                "text": "Prefer not to answer"
+            },
+            {
+                "value": "6",
+                "text": "Other"
+            }
+        ]
+    },
+    {
+        "questionId": 18,
+        "title": "To which gender identity do you most identify:",
+        "questionType": "single",
+        "options": [
+            {
+                "value": "1",
+                "text": "Male"
+            },
+            {
+                "value": "2",
+                "text": "Female"
+            },
+            {
+                "value": "3",
+                "text": "Transgender Male"
+            },
+            {
+                "value": "4",
+                "text": "Transgender Female"
+            },
+            {
+                "value": "5",
+                "text": "Gender Variant/Non-Conforming"
+            },
+            {
+                "value": "6",
+                "text": "Not listed"
+            },
+            {
+                "value": "7",
+                "text": "Prefer not to say"
+            }
+        ]
+    }
+]

@@ -1,58 +1,117 @@
 [
 	{
 		"questionId": 1,
-		"title": "What are you food habit?",
-		"questionType": "multiple",
+		"title": "Are you the main person who buys groceries for your household?",
+		"questionType": "single",
 		"options": [
 			{
 				"value": "1",
-				"text": "this is a relly long text"
+				"text": "Yes"
 			},
 			{
 				"value": "2",
-				"text": "Choice 2"
-			},
-			{
-				"value": "3",
-				"text": "Choice 3"
+				"text": "No"
 			}
 		]
 	},
 	{
 		"questionId": 2,
-		"title": "How much do you spend on Food",
-		"questionType": "multiple",
+		"title": "Where do you normally buy groceries?",
+		"questionType": "single",
 		"options": [
 			{
+				"value": "1",
+				"text": "Large Supermarkets"
+			},
+			{
+				"value": "2",
+				"text": "Independent shops"
+			},
+			{
+				"value": "3",
+				"text": "Local Food/Farmers Markets"
+			},
+			{
 				"value": "4",
-				"text": "less than 20"
+				"text": "Delivery Box Schemes"
 			},
 			{
 				"value": "5",
-				"text": "less than 50"
+				"text": "Online/delivery from supermarket"
 			},
 			{
 				"value": "6",
-				"text": "hundred pound"
+				"text": "other"
 			}
 		]
 	},
 	{
 		"questionId": 3,
-		"title": "Questions3",
-		"questionType": "multiple",
+		"title": "How do you decide where to buy groceries?",
+		"questionType": "single",
 		"options": [
 			{
+				"value": "1",
+				"text": "Price"
+			},
+			{
+				"value": "2",
+				"text": "Distance from home/work"
+			},
+			{
+				"value": "3",
+				"text": "Quality"
+			},
+			{
+				"value": "4",
+				"text": "Organic"
+			},
+			{
+				"value": "5",
+				"text": "Where the food comes from"
+			},
+			{
+				"value": "6",
+				"text": "Miles the food has travelled"
+			},
+			{
 				"value": "7",
-				"text": "Option 5"
+				"text": "Supporting local business"
 			},
 			{
 				"value": "8",
-				"text": "Option wqeqe 1"
+				"text": "Animal Welfare"
 			},
 			{
 				"value": "9",
-				"text": "Option sad sa 1"
+				"text": "Other"
+			}
+		]
+	},
+	{
+		"questionId": 4,
+		"title": "Roughly how much money do you spend weekly on groceries?",
+		"questionType": "single",
+		"options": [
+			{
+				"value": "1",
+				"text": "£0- £20"
+			},
+			{
+				"value": "2",
+				"text": "£20- £40"
+			},
+			{
+				"value": "3",
+				"text": "£40- £60"
+			},
+			{
+				"value": "4",
+				"text": "£60- £100"
+			},
+			{
+				"value": "5",
+				"text": "£100 +"
 			}
 		]
 	}
