@@ -1,5 +1,8 @@
 import axios from 'axios';
+import {Link,State, Route} from 'react-router';
+import Router from 'react-router';
 const apiUrl = process.env.REACT_APP_API_URI || 'http://localhost:4000';
+
 
 const apiClient = {
     getQuestions: () => {
@@ -28,9 +31,10 @@ const apiClient = {
         }
         return axios.post(`${apiUrl}/api/places`, data, config)
     },
-    viewPlaces: (placeId) => {
+    viewSinglePlace: (placeId) => {
         return axios.get(`${apiUrl}/api/places/${placeId}`);
-    }
+    },
+    
 }
 
 export default apiClient;

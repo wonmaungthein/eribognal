@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles } from 'material-ui/styles';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import Grid from 'material-ui/Grid';
-
+import { Link } from 'react-router-dom';
 
 const styles = ({
     listTitle: {
@@ -33,21 +33,22 @@ const styles = ({
     }
 });
 
-
 const PlaceCard = props => {
     const place = props.place;
     return (
         <div style={styles.cardList}>
-            <Grid container spacing={24} >
-                <Grid item xs={4} style={{ textAlign: 'center' }}>
-                    <CategoryIcon category={place.category} />
+            <Link value={place._id} style={{ textDecoration: 'none' }} to={`/places/${place._id}`} >
+                <Grid container spacing={24} >
+                    <Grid item xs={4} style={{ textAlign: 'center' }}>
+                        <CategoryIcon category={place.category} />
+                    </Grid>
+                    <Grid item xs={8} style={{ paddingTop: 0 }}>
+                        <p style={styles.listTitle}> {place.name} </p>
+                        <p style={styles.listAddress}>{place.category} </p>
+                        <p style={styles.listDetails}> {place.description} </p>
+                    </Grid>
                 </Grid>
-                <Grid item xs={8} style={{ paddingTop: 0 }}>
-                    <p style={styles.listTitle}> {place.name} </p>
-                    <p style={styles.listAddress}>{place.category} </p>
-                    <p style={styles.listDetails}> {place.description} </p>
-                </Grid>
-            </Grid>
+            </Link>
         </div>
     )
 };

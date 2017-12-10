@@ -77,7 +77,6 @@ class Questions extends React.Component {
                     this.setState({ isLoading: false });
                     this.props.history.push("/");
                 }, 1000)
-
             })
     }
 

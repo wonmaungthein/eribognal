@@ -5,6 +5,9 @@ const addNewPlace = (query) => {
   return Place.create(query);
 }
 
+
+
+
 const getPlaces = (query, callback) => {
   Place.find(query).exec(callback)
 }

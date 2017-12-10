@@ -63,9 +63,10 @@ router.get('/places/:placeId', function (req, res, next) {
             console.error(error);
             return res.send(500);
         }
-        res.json(data);
+        res.json(data[0]);
+        
     }
-    placesDB.viewPlaces({ _id: placeId }, callback);
+    placesDB.getPlaces({ _id: placeId }, callback);
 });
 
 module.exports = router

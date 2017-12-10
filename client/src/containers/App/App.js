@@ -24,10 +24,10 @@ class App extends Component {
               <Route exact path="/" component={HomeScreen} />
               <Route path="/about" component={About} />
               <Route path="/questionnaire" component={Questions} />
-              <Route path="/places" component={PlacesList} />
-              <Route path="/new-place" component={AddPlaceForm} />
-              <Route path="/places/:placeId" component={viewPlace} />
-            </Grid>
+              <Route exact path="/places/:placeId" component={viewPlace} />
+              <Route exact path="/places" component={PlacesList} />
+              <Route path="/new-place" component={AddPlaceForm} />            
+              </Grid>
           </Grid>
         </div>
       </Router>
