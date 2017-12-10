@@ -6,7 +6,6 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import MenuIcon from 'material-ui-icons/Menu';
 import Themes from '../../Themes';
-import SvgIcon from 'material-ui/SvgIcon';
 import {Link} from 'react-router-dom';
 
 
@@ -22,9 +21,10 @@ function Menu(props) {
                             <Typography type="title" className={classes.appBarTitle}>
                               Food Map  
                             </Typography>
-                            <SvgIcon fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
-                            </SvgIcon>
+                            <Link to="/new-place"><svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z" />
+                            </svg>
+                            </Link>
                         </Toolbar>
                     </AppBar>
                 </Grid>
