@@ -14,9 +14,6 @@ import { Address } from "../../components/Place/Address";
 import Button from 'material-ui/Button';
 import Geosuggest from 'react-geosuggest';
 import './map.css';
-
-
-
 import Dialog, {
 	DialogActions,
 	DialogContent,
@@ -129,6 +126,7 @@ class AddPlaceForm extends React.Component {
 			[field]: value
 		})
 	}
+
 	_handleAddress = (event, field) => {
 		const value = event.target.value;
 		this.setState({
@@ -138,9 +136,11 @@ class AddPlaceForm extends React.Component {
 			}
 		})
 	}
+
 	onFileChange = (e) => {
 		this.setState({ file: e.target.files[0] })
 	}
+
 	showError = () => {
 		if (this.state.error !== undefined) {
 			return (
@@ -164,7 +164,6 @@ class AddPlaceForm extends React.Component {
 		}
 	}
 
-
 	onSuggestSelect = (suggest) => {
 		if (!suggest) return;
 
@@ -172,8 +171,6 @@ class AddPlaceForm extends React.Component {
 		const { address_components = [] } = gmaps;
 		const postCodeData = address_components[5] || {};
 		const cityData = address_components[1] || {};
-
-
 
 		this.setState({
 			address: {
@@ -274,6 +271,7 @@ class AddPlaceForm extends React.Component {
 		}
 	}
 }
+
 
 
 AddPlaceForm.propTypes = {
