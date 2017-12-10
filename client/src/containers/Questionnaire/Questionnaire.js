@@ -32,15 +32,20 @@ class Questions extends React.Component {
     }
 
     componentDidMount() {
+        this.setState({
+            isLoading: true
+        })
         apiClient.getQuestions()
             .then(this.showQuestions);
     }
 
     showQuestions = (response) => {
-        this.setState({
-            questions: response.data
-        })
-
+        setTimeout(() => {
+            this.setState({
+                isLoading: false,
+                questions: response.data
+            })
+        }, 1000)
     }
     onSelect = (question, event) => {
         const value = event.target.value;
@@ -67,10 +72,13 @@ class Questions extends React.Component {
         apiClient.saveAnswer({
             answers: this.state.questions
         })
-        .then(() => {
-            setTimeout(() => { this.setState({ isLoading: false }) }, 3000)
-            this.props.history.push("/")
-        })
+            .then(() => {
+                setTimeout(() => {
+                    this.setState({ isLoading: false });
+                    this.props.history.push("/");
+                }, 1000)
+
+            })
     }
 
     render() {

@@ -34,8 +34,8 @@ const styles = ({
 	},
 	categoryList: {
 		width: '100%',
-        paddingLeft: 100,
-    },
+		paddingLeft: 100,
+	},
 	formStyle: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -86,7 +86,7 @@ class AddPlaceForm extends React.Component {
 			category: this.state.selectedCategory,
 		}, this.state.file)
 			.then((response) => {
-				setTimeout(() => { this.setState({ isLoading: false }) }, 3000)
+				setTimeout(() => { this.setState({ isLoading: false }) }, 1000)
 				this.setState({
 					name: "",
 					address: {
@@ -174,6 +174,7 @@ class AddPlaceForm extends React.Component {
 		const cityData = address_components[1] || {};
 
 
+
 		this.setState({
 			address: {
 				line1: suggest.description || '',
@@ -183,7 +184,6 @@ class AddPlaceForm extends React.Component {
 			}
 		})
 	}
-
 
 	render() {
 		const { classes } = this.props;
@@ -201,7 +201,7 @@ class AddPlaceForm extends React.Component {
 							<FormControl required className={classes.formControl}>
 								<InputLabel htmlFor="Select Category">Select Category</InputLabel>
 								<Select style={styles.categoryList}
-									value={this.state.selectedCategory} 
+									value={this.state.selectedCategory}
 									onChange={(event) => this._handleChange(event, "selectedCategory")}>
 									<MenuItem value="Growing Project">Growing Project</MenuItem>
 									<MenuItem value="Night Out">Night Out</MenuItem>
@@ -243,7 +243,7 @@ class AddPlaceForm extends React.Component {
 								address={this.state.address}
 							/>
 						</Grid>
-						
+
 						<Grid item xs={12} md={6}>
 							<input type="file" accept=".png,.jpg,.jpeg,.gif" onChange={this.onFileChange} />
 							<RaisedButton type="submit" value="Submit" onClick={this._handleSubmit}>
@@ -261,7 +261,7 @@ class AddPlaceForm extends React.Component {
 						<DialogContent>
 							<DialogContentText>
 								You have Successfully submitted the form
-			  </DialogContentText>
+			  				</DialogContentText>
 						</DialogContent>
 						<DialogActions>
 							<Button onClick={this.handleRequestClose} color="primary">

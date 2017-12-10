@@ -37,7 +37,7 @@ class PlacesList extends React.Component {
         })
         apiClient.getPlaces()
             .then(({ data }) => {
-                setTimeout(() => {this.setState({isLoading: false})}, 3000)
+                setTimeout(() => {this.setState({isLoading: false})}, 1000)
                 this.setState({
                     places: data,
                 });
