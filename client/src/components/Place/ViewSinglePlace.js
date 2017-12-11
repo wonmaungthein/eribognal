@@ -83,7 +83,6 @@ class viewPlace extends React.Component {
                             <p style={styles.listAddress}>{place.name} </p>
                             <p style={styles.listDetails}> {place.description} </p>
                             <p style={styles.listDetails}> {place.category} </p>
-                            <p style={styles.listDetails}> {place._id} </p>
                             {this._renderAddress(place)}
                         </div>
                     </Grid>

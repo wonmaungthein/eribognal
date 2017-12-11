@@ -7,6 +7,7 @@ const styles = {
     customWidth: {
         width: 150,
         paddingLeft: 35,
+        paddingTop: 20,
     },
 };
 

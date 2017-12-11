@@ -35,6 +35,11 @@ const styles = ({
 
 const PlaceCard = props => {
     const place = props.place;
+    let postCode = " ";
+    if (place.address) {
+        postCode = place.address.postcode;
+    }
+
     return (
         <div style={styles.cardList}>
             <Link value={place._id} style={{ textDecoration: 'none' }} to={`/places/${place._id}`} >
@@ -44,6 +49,7 @@ const PlaceCard = props => {
                     </Grid>
                     <Grid item xs={8} style={{ paddingTop: 0 }}>
                         <p style={styles.listTitle}> {place.name} </p>
+                        <p style={styles.listDetails}> {postCode} </p>
                         <p style={styles.listAddress}>{place.category} </p>
                         <p style={styles.listDetails}> {place.description} </p>
                     </Grid>
