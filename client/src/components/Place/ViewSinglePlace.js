@@ -22,7 +22,6 @@ const styles = ({
     listDetails: {
         fontSize: 18,
         color: "rgba(0,0,0,0.54)",
-        lineHeight: 0.1,
         marginTop: 10,
     },
     listTitle: {
