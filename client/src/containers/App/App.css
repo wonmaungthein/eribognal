@@ -22,7 +22,25 @@
   font-size: large;
 }
 
+.containerFlex {
+  display: -webkit-flex; /* Safari */
+  -webkit-justify-content: space-around; /* Safari 6.1+ */
+  display: flex;
+  justify-content: center;
+}
+
+.containerApp {
+  background: white;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@media (min-width: 700px) {
+   .containerApp {
+    width:  700px;
+  }
+
 }

@@ -17,18 +17,21 @@ class App extends Component {
     const { classes } = this.props;
     return (
       <Router>
-        <div className={classes.root}>
-          <Menu />
-
-          <Route exact path="/" component={HomeScreen} />
-          <Route path="/about" component={About} />
-          <Route path="/questionnaire" component={Questions} />
-          <Route exact path="/places/:placeId" component={viewPlace} />
-          <Route exact path="/places" component={PlacesList} />
-          <Route path="/new-place" component={AddPlaceForm} />
-
+        <div className="containerFlex">
+          <div className="containerApp" >
+            <div className={classes.root}>
+              <Menu />
+              <Route exact path="/" component={HomeScreen} />
+              <Route path="/about" component={About} />
+              <Route path="/questionnaire" component={Questions} />
+              <Route exact path="/places/:placeId" component={viewPlace} />
+              <Route exact path="/places" component={PlacesList} />
+              <Route path="/new-place" component={AddPlaceForm} />
+            </div>
+          </div>
         </div>
       </Router>
+
     );
   }
 }
