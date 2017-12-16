@@ -16,3 +16,9 @@ const addAnswer = (answerBody) => {
 };
 module.exports = { addAnswer };
 
+
+const getQuestionnaire = (query, callback) => {
+    Answer.find(query).exec(callback)
+  }
+module.exports = { addAnswer,getQuestionnaire };
+

@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 const placesDB = require('../dbClients/placesDB')
+const Place = require('../models/Place');
+const answerDB = require('../dbClients/answerDB')
+const Answer = require('../models/Answer');
+
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -53,4 +57,23 @@ router.post('/places/:placeId/approve', (req, res) => {
 router.get('/users', function (req, res, next) {
   res.send('This is users page in Admin');
 });
+
+
+
+
+router.get('/questionnaire', function (req, res, next) {
+  const callback = (error, answers) => {
+    if (error) {
+      res.render('error', {
+        error: error,
+        message: 'This is an error'
+      })
+    }
+    res.render('questionnaire', {
+      answers: answers,
+      error: error
+    });
+  };
+  answerDB.getQuestionnaire(callback);
+})
 module.exports = router;

@@ -1,0 +1,17 @@
+<h1>Questions/Answers</h1>
+<p>Welcome to this Page, You are the admin </p>
+
+{{#each answers}}
+<div class="col-sm-6">
+    <div class="card" style="margin-bottom:10px; padding: 20px; border: 2px dashed #ccc;background-color: #fbfbfb">
+        {{#each this.answers}}
+            <h4>{{this.title}}</h4>
+            {{#each this.options}}
+                {{#if this.selected}}
+                    <p> ★ {{this.text}}</p>
+                {{/if}}
+            {{/each}}
+        {{/each}}
+    </div>
+    </div>
+{{/each}}
