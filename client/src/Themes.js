@@ -22,6 +22,12 @@ const Themes = theme => ({
     color: 'white',
     'font': 'Roboto'
   },
+  appBarTitle1: {
+    'font-size': 20,
+    color: 'white',
+    'font': 'Roboto',
+    'text-decoration' : 'none' 
+  },
   flex: {
     flex: 1,
   },
