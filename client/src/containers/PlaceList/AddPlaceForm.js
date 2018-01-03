@@ -194,7 +194,7 @@ class AddPlaceForm extends React.Component {
 						<Grid item xs={12}>
 							<h2>Suggest a New Place</h2>
 						</Grid>
-						<Grid item xs={12} md={6}>
+						<Grid item xs={12}>
 							<FormControl fullWidth required>
 								<InputLabel htmlFor="Select Category">Select Category</InputLabel>
 								<Select
@@ -207,7 +207,7 @@ class AddPlaceForm extends React.Component {
 								</Select>
 							</FormControl>
 						</Grid>
-						<Grid item xs={12} md={6}>
+						<Grid item xs={12}>
 							<TextField
 								fullWidth
 								required
@@ -219,7 +219,7 @@ class AddPlaceForm extends React.Component {
 								name="name"
 								placeholder="Name of the Place" />
 						</Grid>
-						<Grid item xs={12} md={6}>
+						<Grid item xs={12} >
 							<TextField
 								fullWidth
 								required
@@ -232,23 +232,23 @@ class AddPlaceForm extends React.Component {
 								name="description"
 								placeholder="Description" />
 						</Grid>
-						<Grid item xs={12} md={6}>
+						<Grid item xs={12} >
 							<Geosuggest
 								placeholder="Start typing to search for a Place"
 								country="gb"
 								onSuggestSelect={this.onSuggestSelect} />
 						</Grid>
-						<Grid item xs={12} md={6}>
+						<Grid item xs={12} >
 							<Address
 								onChange={(event, field) => this._handleAddress(event, field)}
 								address={this.state.address}
 							/>
 						</Grid>
 
-						<Grid item xs={12} md={6}>
+						<Grid item xs={12}>
 							<input type="file" accept=".png,.jpg,.jpeg,.gif" onChange={this.onFileChange} />
 						</Grid>
-						<Grid item xs={12} md={6}>
+						<Grid item xs={12}>
 							<Button className={classes.button} onClick={this._handleSubmit} raised color="accent">
 								Save
 								<Send style={{ marginLeft: 10 }} />

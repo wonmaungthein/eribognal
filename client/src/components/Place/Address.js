@@ -20,7 +20,7 @@ class Address extends React.Component {
         return (
             <Grid container spacing={24}>
 
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12}>
                     <TextField
                         fullWidth
                         label="Address line 1"
@@ -30,7 +30,7 @@ class Address extends React.Component {
                         name="line1"
                         placeholder="Address line 1" />
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12}>
                     <TextField
                         fullWidth
                         label="Address line 2"
@@ -40,7 +40,7 @@ class Address extends React.Component {
                         name="line2"
                         placeholder="Address line 2" />
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12}>
                     <TextField
                         fullWidth
                         label="Postcode"
@@ -52,7 +52,7 @@ class Address extends React.Component {
                         onChange={(event) => this.props.onChange(event, "postcode")}
                     />
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12}>
                     <FormControl fullWidth>
                         <InputLabel htmlFor="City">Select City</InputLabel>
                         <Select style={styles}
