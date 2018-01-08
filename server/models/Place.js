@@ -20,7 +20,8 @@ const schema = new Schema({
         line1: { type: String },
         line2: { type: String },
         postcode: { type: String },
-        city: { type: String }
+        city: { type: String },
+        location: { lat: [Number], lng: [Number] },
     },
     description: {
         type: String,
