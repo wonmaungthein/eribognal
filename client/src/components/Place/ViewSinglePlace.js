@@ -10,12 +10,14 @@ const styles = ({
         alignSelf: "baseline",
         paddingLeft: 10,
         margin: 0,
+        paddingRight: 10,
+
     },
     gridStyle: {
         display: "flex",
         flexDirection: "row",
         alignItems: "stretch",
-        margin: 20
+        marginTop: 20
     },
     listDetails: {
         fontSize: 15,
@@ -34,8 +36,6 @@ const styles = ({
         letterSpacing: 0
     },
 });
-
-
 
 class viewPlace extends React.Component {
     constructor(props) {
@@ -68,7 +68,6 @@ class viewPlace extends React.Component {
                 <p style={styles.listDetails}> {place.address.city} </p></div>);
     }
 
-
     render() {
         let place = this.state.place;
         if (!place._id) {
@@ -78,7 +77,7 @@ class viewPlace extends React.Component {
         return (
             <div>
                 <Grid container spacing={24} style={styles.gridStyle}>
-                    <Grid item xs={4}>
+                    <Grid item xs={2}>
                     </Grid>
                     <Grid item xs={8} style={{ paddingTop: 0 }}>
                         <div>
