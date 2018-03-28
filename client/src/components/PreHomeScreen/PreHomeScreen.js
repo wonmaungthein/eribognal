@@ -10,7 +10,7 @@ const HomeScreen = () => {
           <div className='first-content'>
             <img
               className='img-control'
-              src='kpc-sponsors.png'
+              src='kpc-sponsors.jpg'
               alt='home screen one'
             />
           </div>
